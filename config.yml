@@ -1,0 +1,22 @@
+help:
+  list:
+    - text: "&7[&b系统&7]&e修改昵称" #这是聊天栏显示的文字，可以用&颜色字符
+      type: 2 #0为普通文字 1为玩家执行指令，2为在玩家输入框输入文字，3为网址，4为打开指定文件（测试似乎无效），5为点击发送聊天栏信息
+      lore: "&a这是第一行文字\n&b这是第二行文字" #这里是鼠标浮动信息
+      content: "/nick 昵称" #当type不为0时，填写的，可以为指令，文字，网址，文件路径，聊天栏信息(可以使用\n换行) 可用变量{player}
+
+    - text: "&6&l{player}   &e&l→&c&l点我点我&e&l←"
+      type: 5
+      lore: "&e看什么看！快点！"
+      content: "&e你好，&6{player}\n&a该插件作者：&b&l冷枫小乐"
+
+    - text: "tell"
+      type: 1
+      lore: "&a点击查看tell相关帮助"
+      content: "/helper:help tell"
+tell:
+  list:
+    - text: "用法：/tell <玩家名> <消息>"
+      type: 2
+      lore: ""
+      content: "/tell {player} 说点什么"

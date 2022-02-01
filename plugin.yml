@@ -1,0 +1,12 @@
+name: Helper
+version: 1.0.0
+author: LectWolf
+main: cc.mcii.Helper.Main
+
+commands:
+  help:
+    description: "替换原版/help列表"
+    usage: "用法：/help 显示帮助列表"
+  helper:
+    description: "插件命令"
+    usage: "用法：/helper [reload|print]"
