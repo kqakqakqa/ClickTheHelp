@@ -8,4 +8,6 @@
 JAVA 1.8
 
 #### 使用说明
-jar命令打包
+1.本项目依赖这个jar包，请自行下载 [arclight-forge-1.15-1.0.16.jar](https://www.mcmod.cn/download/3060.html)
+
+2.打包使用jar命令即可
