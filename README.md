@@ -2,6 +2,12 @@
 
 一个Minecraft可交互help命令帮助插件
 
+### 展示
+
+![help](2.gif)
+
+![config](1.gif)
+
 ### 介绍
 
 - 原作者：MCBBS@冷枫小乐
