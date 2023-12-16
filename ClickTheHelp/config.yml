@@ -1,0 +1,27 @@
+help: # 默认页面
+  - text: "&7[&b系统&7]&e帮助" # 聊天栏显示的文本，可以使用 &颜色字符
+    lore: "&a这是第一行文字\n&b这是第二行文字" # 鼠标浮动时显示的文本
+    type: "text" # text 普通文字，suggest-command 在玩家聊天栏输入内容，run-command 玩家执行命令，open-url 打开网址
+    content: "" # 当type不为text时填写。可以为要执行的命令/聊天栏输入内容/打开网址。可以使用 \n 换行，可以使用变量 {player}
+
+  - text: "tell"
+    lore: "&a点击查看tell相关帮助"
+    type: "suggest-command"
+    content: "/help tell"
+
+  - text: "&6&l{player}   &e&l→&c&l点我点我&e&l←"
+    lore: "&e看什么看！快点！"
+    type: "run-command"
+    content: "/clickthehelp:help info"
+
+tell:
+  - text: "用法：/tell <玩家名> <消息>"
+    lore: ""
+    type: "suggest-command"
+    content: "/tell {player} 说点什么"
+
+info:
+  - text: "&e你好，&6{player}\n&a插件作者：&b&l冷枫小乐"
+    lore: ""
+    type: "text"
+    content: ""

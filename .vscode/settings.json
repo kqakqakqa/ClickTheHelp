@@ -1,0 +1,14 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/spigot-1.16.5.jar"
+        ],
+        "exclude": [
+        ]
+    },
+    "java.project.sourcePaths": [
+        "ClickTheHelp"
+    ],
+    "java.project.explorer.showNonJavaResources": true,
+    "java.project.outputPath": "output"
+}
