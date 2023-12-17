@@ -1,18 +1,18 @@
 name: ClickTheHelp
-version: 0.0.1
+version: 0.0.2
 main: cc.mcii.ClickTheHelp.ClickTheHelp
-api-version: '1.16'
+api-version: '1.13'
 
 commands:
   help:
-    description: "替换原版/help列表"
-    usage: "用法：/help"
+    description: "Replaces vanilla /help pages"
+    usage: "Usage: /help [helpname]"
   clickthehelp:
-    description: "插件命令"
-    usage: "用法：/clickthehelp reload"
+    description: "Config of ClickTheHelp"
+    usage: "Usage: /clickthehelp {reload}"
     permission: clickthehelp.config
 
 permissions:
   clickthehelp.config:
-    description: 配置插件的权限
+    description: Config of ClickTheHelp
     default: op

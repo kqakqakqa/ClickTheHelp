@@ -23,23 +23,19 @@ public class ClickTheHelp extends JavaPlugin {
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
-        printPluginInfo();
+        printToConsole("&a感谢使用ClickTheHelp!");
+        printToConsole("&2Thanks for using ClickTheHelp!");
         this.getCommand("clickthehelp").setExecutor(new ConfigCommands());
         this.getCommand("clickthehelp").setTabCompleter(new ConfigCommands());
         this.getCommand("help").setExecutor(new HelpCommands());
     }
 
     public void onDisable() {
-        printToConsole("&c已卸载");
+        printToConsole("&cDisabled!");
     }
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         return false;
-    }
-
-    private void printPluginInfo() {
-        printToConsole("&a感谢使用ClickTheHelp");
-        printToConsole("&a作者：冷枫小乐");
     }
 
     public void printToConsole(String message) {

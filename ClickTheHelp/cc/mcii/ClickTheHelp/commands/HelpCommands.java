@@ -4,16 +4,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.HoverEvent;
-import net.md_5.bungee.api.chat.TextComponent;
+
 import net.md_5.bungee.api.chat.hover.content.Text;
+import net.md_5.bungee.api.chat.*;
 
 import cc.mcii.ClickTheHelp.ClickTheHelp;
 
@@ -25,7 +26,7 @@ public class HelpCommands implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         this.instance = ClickTheHelp.getInstance();
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ClickTheHelp.toConsoleMessage("&cClickTheHelp不能在后台展示！"));
+            sender.sendMessage(ClickTheHelp.toConsoleMessage("&cYou must be a player to use this command!"));
             return true;
         }
         Player player = (Player) sender;
@@ -73,10 +74,15 @@ public class HelpCommands implements CommandExecutor {
     private TextComponent getTextComponent(Player player, Map<String, String> map) {
         TextComponent textComponent = new TextComponent();
         textComponent.setText(ClickTheHelp.toPlayerMessage(map.get("text"), player.getName()));
-        if (map.get("lore") != null && !"".equals(map.get("lore"))) {
-            Text text = new Text(ClickTheHelp.toPlayerMessage(map.get("lore"), player.getName()));
-            HoverEvent hoverEvent = new HoverEvent(HoverEvent.Action.SHOW_TEXT, text);
-            textComponent.setHoverEvent(hoverEvent);
+        Integer versionNumber = getVersionNumber();
+        if (map.get("lore") != null && !"".equals(map.get("lore")) && versionNumber != null) {
+            String text = ClickTheHelp.toPlayerMessage(map.get("lore"), player.getName());
+            if (versionNumber > 13) {
+                textComponent.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(text)));
+            } else {
+                textComponent.setHoverEvent(
+                        new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(text).create()));
+            }
         }
         String content = ClickTheHelp.toPlayerMessage(map.get("content"), player.getName());
         switch (map.get("type")) {
@@ -93,5 +99,16 @@ public class HelpCommands implements CommandExecutor {
                 break;
         }
         return textComponent;
+    }
+
+    private Integer getVersionNumber() {
+        String bukkitVersion = Bukkit.getVersion();
+        String pattern = "\\(MC: [0-9]*\\.([0-9]*)(\\..*)*\\)";
+        Matcher matcher = Pattern.compile(pattern).matcher(bukkitVersion);
+        if (matcher.find()) {
+            Integer versionNumber = Integer.valueOf(matcher.group(1));
+            return versionNumber;
+        }
+        return null;
     }
 }

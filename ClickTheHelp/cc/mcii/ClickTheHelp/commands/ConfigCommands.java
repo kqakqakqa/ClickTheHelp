@@ -22,9 +22,9 @@ public class ConfigCommands implements CommandExecutor, TabCompleter {
             instance.saveDefaultConfig();
             instance.reloadConfig();
             if (sender instanceof Player) {
-                sender.sendMessage(ClickTheHelp.toConsoleMessage("&a重载成功!"));
+                sender.sendMessage(ClickTheHelp.toConsoleMessage("&aReloaded!"));
             }
-            instance.printToConsole("&a重载成功!");
+            instance.printToConsole("&aReloaded!");
             return true;
         }
         return false;

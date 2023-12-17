@@ -1,11 +1,8 @@
 {
-    "java.project.referencedLibraries": {
-        "include": [
-            "lib/spigot-1.16.5.jar"
-        ],
-        "exclude": [
-        ]
-    },
+    "java.project.referencedLibraries": [
+        "lib/spigot-1.16.5.jar",
+        "lib/craftbukkit-1.8-R0.1-SNAPSHOT-latest.jar"
+    ],
     "java.project.sourcePaths": [
         "ClickTheHelp"
     ],
